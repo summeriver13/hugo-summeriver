@@ -1,28 +1,35 @@
-baseURL: "https://examplesite.com/"
-title: ExampleSite
+baseURL: "https://summeriver.tech/"
+title: "summeriver's blog"
 paginate: 5
 theme: PaperMod
 
+enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
+enableEmoji: true
 googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
   minifyOutput: true
 
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
+  title: "summeriver's blog"
+  description: "夏河的博客"
+  keywords: [Blog, Portfolio, PaperMod, Hugo]
+  author: 夏河
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
+  DateFormat: "January 2, 2023"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
@@ -30,7 +37,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -52,21 +59,23 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Home"
+    text: "首页"
     icon: /apple-touch-icon.png
     iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
+    enabled: true # needs to be explicitly set
+    title: 夏河
+    subtitle: "我在故我思"
+    imageUrl: "https://img1.imgtp.com/2023/05/05/YEzjrj2Z.png"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: 斑鸠
     buttons:
-      - name: Posts
+      - name: Archives
+        url: archives
+      - name: Blog
         url: posts
       - name: Tags
         url: tags
@@ -77,20 +86,22 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
+    - name: steam
+      url: "https://steamcommunity.com/id/summeriver13/"
+    - name: bilibili
+      url: "https://bilibili.com/523533271"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/summeriver13"
+    - name: rss
+      url: "index.xml"
 
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "summeriver"
     bing:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "summeriver"
     yandex:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "summeriver"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -112,8 +123,18 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
+
+taxonomies:
+          category: categories
+          tag: tags
+          series: series
+
 menu:
   main:
+    - identifier: search
+      name: Search
+      url: search/
+      weight: 5
     - identifier: categories
       name: categories
       url: /categories/
@@ -123,11 +144,12 @@ menu:
       url: /tags/
       weight: 20
     - identifier: example
-      name: example.org
-      url: https://example.org
+      name: summeriver.tech
+      url: "https://summeriver.tech/"
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
+
 markup:
   highlight:
     noClasses: false
@@ -135,4 +157,5 @@ markup:
     # codeFences: true
     # guessSyntax: true
     # lineNos: true
-    # style: monokai
+    style: monokai
+
